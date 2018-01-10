@@ -1,0 +1,128 @@
+<grip:Pipeline>
+  <sources>
+    <grip:MultiImageFile>
+      <property name="path[2]" value="C:\Users\koconnor\Pictures\LifeCam Files\Center_FarRight.jpg"/>
+      <property name="path[5]" value="C:\Users\koconnor\Pictures\LifeCam Files\High_Angle_Far.jpg"/>
+      <property name="path[8]" value="C:\Users\koconnor\Pictures\LifeCam Files\High_Cross.jpg"/>
+      <property name="path[12]" value="C:\Users\koconnor\Pictures\LifeCam Files\Straight_4ft.jpg"/>
+      <property name="path[15]" value="C:\Users\koconnor\Pictures\LifeCam Files\Straight_7ft.jpg"/>
+      <property name="index" value="16"/>
+      <property name="path[0]" value="C:\Users\koconnor\Pictures\LifeCam Files\Center.jpg"/>
+      <property name="path[3]" value="C:\Users\koconnor\Pictures\LifeCam Files\Center_MediumRiht.jpg"/>
+      <property name="path[6]" value="C:\Users\koconnor\Pictures\LifeCam Files\High_Angle_Med.jpg"/>
+      <property name="path[9]" value="C:\Users\koconnor\Pictures\LifeCam Files\High_Far.jpg"/>
+      <property name="path[10]" value="C:\Users\koconnor\Pictures\LifeCam Files\Straight_2ft.jpg"/>
+      <property name="path[13]" value="C:\Users\koconnor\Pictures\LifeCam Files\Straight_5ft.jpg"/>
+      <property name="path[16]" value="C:\Users\koconnor\Pictures\LifeCam Files\Straight_8ft.jpg"/>
+      <property name="numImages" value="18"/>
+      <property name="path[1]" value="C:\Users\koconnor\Pictures\LifeCam Files\Center_CloseRight.jpg"/>
+      <property name="path[4]" value="C:\Users\koconnor\Pictures\LifeCam Files\High_Angle_Close.jpg"/>
+      <property name="path[7]" value="C:\Users\koconnor\Pictures\LifeCam Files\High_Clip.jpg"/>
+      <property name="path[11]" value="C:\Users\koconnor\Pictures\LifeCam Files\Straight_3ft.jpg"/>
+      <property name="path[14]" value="C:\Users\koconnor\Pictures\LifeCam Files\Straight_6ft.jpg"/>
+      <property name="path[17]" value="C:\Users\koconnor\Pictures\LifeCam Files\Straight_9ft.jpg"/>
+    </grip:MultiImageFile>
+  </sources>
+  <steps>
+    <grip:Step name="HSL Threshold">
+      <grip:Input step="0" socket="0"/>
+      <grip:Input step="0" socket="1">
+        <value>
+          <double>9.712230215827338</double>
+          <double>70.01866083924669</double>
+        </value>
+      </grip:Input>
+      <grip:Input step="0" socket="2">
+        <value>
+          <double>199.50539568345317</double>
+          <double>255.0</double>
+        </value>
+      </grip:Input>
+      <grip:Input step="0" socket="3">
+        <value>
+          <double>30.07566043909661</double>
+          <double>255.0</double>
+        </value>
+      </grip:Input>
+      <grip:Output step="0" socket="0" previewed="false"/>
+    </grip:Step>
+    <grip:Step name="Find Contours">
+      <grip:Input step="1" socket="0"/>
+      <grip:Input step="1" socket="1">
+        <value>false</value>
+      </grip:Input>
+      <grip:Output step="1" socket="0" previewed="true"/>
+    </grip:Step>
+    <grip:Step name="Filter Contours">
+      <grip:Input step="2" socket="0"/>
+      <grip:Input step="2" socket="1">
+        <value>100.0</value>
+      </grip:Input>
+      <grip:Input step="2" socket="2">
+        <value>0.0</value>
+      </grip:Input>
+      <grip:Input step="2" socket="3">
+        <value>0.0</value>
+      </grip:Input>
+      <grip:Input step="2" socket="4">
+        <value>1000.0</value>
+      </grip:Input>
+      <grip:Input step="2" socket="5">
+        <value>60.0</value>
+      </grip:Input>
+      <grip:Input step="2" socket="6">
+        <value>1000.0</value>
+      </grip:Input>
+      <grip:Input step="2" socket="7">
+        <value>
+          <int>0</int>
+          <int>100</int>
+        </value>
+      </grip:Input>
+      <grip:Input step="2" socket="8">
+        <value>1000000.0</value>
+      </grip:Input>
+      <grip:Input step="2" socket="9">
+        <value>0.0</value>
+      </grip:Input>
+      <grip:Input step="2" socket="10">
+        <value>0.0</value>
+      </grip:Input>
+      <grip:Input step="2" socket="11">
+        <value>1000.0</value>
+      </grip:Input>
+      <grip:Output step="2" socket="0" previewed="true"/>
+    </grip:Step>
+  </steps>
+  <connections>
+    <grip:Connection>
+      <grip:Output step="0" socket="0" previewed="false"/>
+      <grip:Input step="1" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output step="1" socket="0" previewed="true"/>
+      <grip:Input step="2" socket="0"/>
+    </grip:Connection>
+    <grip:Connection>
+      <grip:Output source="0" socket="0" previewed="true"/>
+      <grip:Input step="0" socket="0"/>
+    </grip:Connection>
+  </connections>
+  <settings>
+    <teamNumber>0</teamNumber>
+    <publishAddress>roboRIO-0-FRC.local</publishAddress>
+    <deployAddress>roboRIO-0-FRC.local</deployAddress>
+    <deployDir>/home/lvuser</deployDir>
+    <deployUser>lvuser</deployUser>
+    <deployJavaHome>/usr/local/frc/JRE/</deployJavaHome>
+    <deployJvmOptions>-Xmx50m -XX:-OmitStackTraceInFastThrow -XX:+HeapDumpOnOutOfMemoryError -XX:MaxNewSize=16m</deployJvmOptions>
+  </settings>
+  <codeGenerationSettings>
+    <language>Java</language>
+    <className>GripPipeline</className>
+    <implementWpilibPipeline>true</implementWpilibPipeline>
+    <saveDir>C:\Users\koconnor\Documents\Game Design\2017\Vision Example</saveDir>
+    <packageName>org.frc.team</packageName>
+    <moduleName>grip</moduleName>
+  </codeGenerationSettings>
+</grip:Pipeline>
